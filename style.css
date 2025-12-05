@@ -75,3 +75,23 @@ ul {
 .listening {
     background: #ff4d4d !important;
 }
+
+.delete-btn {
+    margin-left: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+li span {
+    width: 90%;
+    word-wrap: break-word;
+}

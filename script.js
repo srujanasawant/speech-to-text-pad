@@ -23,11 +23,31 @@ window.onload = () => {
 
 function renderNotes() {
     notesList.innerHTML = "";
+
     notes.forEach((note, index) => {
         const li = document.createElement("li");
-        li.textContent = note;
+
+        const textSpan = document.createElement("span");
+        textSpan.textContent = note;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.classList.add("delete-btn");
+
+        deleteBtn.addEventListener("click", () => {
+            deleteNote(index);
+        });
+
+        li.appendChild(textSpan);
+        li.appendChild(deleteBtn);
         notesList.appendChild(li);
     });
+}
+
+function deleteNote(index) {
+    notes.splice(index, 1); // remove note at index
+    localStorage.setItem("speechNotes", JSON.stringify(notes));
+    renderNotes();
 }
 
 if (!SpeechRecognition) {
