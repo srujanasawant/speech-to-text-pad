@@ -115,16 +115,6 @@ if (!SpeechRecognition) {
 languageSelect.addEventListener("change", () => {
     recognition.lang = languageSelect.value;
 });
-const options = languageSelect.querySelectorAll("option");
-options.forEach(option => {
-    const flag = option.getAttribute("data-flag");
-    if (flag) {
-        option.style.backgroundImage = `url('https://flagcdn.com/24x18/${flag}')`;
-        option.style.backgroundRepeat = "no-repeat";
-        option.style.backgroundPosition = "8px center";
-        option.style.backgroundSize = "20px";
-    }
-});
 
 
 // Start listening
