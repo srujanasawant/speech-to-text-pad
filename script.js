@@ -10,6 +10,26 @@ const statusText = document.getElementById("status");
 const textArea = document.getElementById("textArea");
 const notesList = document.getElementById("notesList");
 
+let notes = []; // store notes array locally
+
+// Load saved notes on page load
+window.onload = () => {
+    const storedNotes = localStorage.getItem("speechNotes");
+    if (storedNotes) {
+        notes = JSON.parse(storedNotes);
+        renderNotes();
+    }
+};
+
+function renderNotes() {
+    notesList.innerHTML = "";
+    notes.forEach((note, index) => {
+        const li = document.createElement("li");
+        li.textContent = note;
+        notesList.appendChild(li);
+    });
+}
+
 if (!SpeechRecognition) {
     statusText.textContent = "Speech Recognition not supported in this browser.";
     startBtn.disabled = true;
@@ -67,9 +87,9 @@ saveBtn.addEventListener("click", () => {
     const noteText = textArea.value.trim();
     if (noteText === "") return;
 
-    const li = document.createElement("li");
-    li.textContent = noteText;
-    notesList.appendChild(li);
+    notes.push(noteText);
+    localStorage.setItem("speechNotes", JSON.stringify(notes));
 
+    renderNotes();
     textArea.value = "";
 });
