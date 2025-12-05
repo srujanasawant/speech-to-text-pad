@@ -160,3 +160,37 @@ li span {
 .delete-btn:hover {
     background: #ff9aa7;
 }
+
+.lang-select {
+    width: 240px;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 2px solid #ffd1d9;
+    background: #fff0f3;
+    color: #ff6b81;
+    font-weight: 600;
+    display: block;
+    margin: 0 auto 20px auto;
+    text-align: left;                 /* LEFT ALIGN */
+    box-shadow: 0 0 10px rgba(255, 118, 130, 0.15);
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+}
+.lang-select:hover {
+    background: #ffe4ea;
+}
+.lang-select option {
+    background: #fff0f3;
+    color: #ff6b81;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.lang-select option {
+    background-position: left 8px center;
+    background-size: 20px;
+    padding-left: 32px;
+}
+

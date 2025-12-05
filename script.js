@@ -2,6 +2,7 @@
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition;
 let isListening = false;
+const languageSelect = document.getElementById("languageSelect");
 
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
@@ -77,8 +78,8 @@ if (!SpeechRecognition) {
 } else {
     recognition = new SpeechRecognition();
     recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.lang = languageSelect.value;
 
     recognition.onstart = () => {
         statusText.textContent = "Status: Listening...";
@@ -101,12 +102,30 @@ if (!SpeechRecognition) {
 
     recognition.onresult = (event) => {
         let transcript = "";
+
         for (let i = event.resultIndex; i < event.results.length; i++) {
+            // With interimResults = false, these should all be final
             transcript += event.results[i][0].transcript;
         }
-        textArea.value = transcript.trim();
+
+        textArea.value += transcript.trim() + " ";
     };
 }
+
+languageSelect.addEventListener("change", () => {
+    recognition.lang = languageSelect.value;
+});
+const options = languageSelect.querySelectorAll("option");
+options.forEach(option => {
+    const flag = option.getAttribute("data-flag");
+    if (flag) {
+        option.style.backgroundImage = `url('https://flagcdn.com/24x18/${flag}')`;
+        option.style.backgroundRepeat = "no-repeat";
+        option.style.backgroundPosition = "8px center";
+        option.style.backgroundSize = "20px";
+    }
+});
+
 
 // Start listening
 startBtn.addEventListener("click", () => {
