@@ -14,7 +14,6 @@
     letter-spacing: 1px;
 }
 
-
 body {
     background: linear-gradient(135deg, #ffe6e9, #fff5f7); /* blush gradient */
     min-height: 100vh;
@@ -162,7 +161,7 @@ li span {
 }
 
 .lang-select {
-    width: 240px;
+    width: 150px;
     padding: 12px 14px;
     font-size: 16px;
     border-radius: 12px;
@@ -187,4 +186,3 @@ li span {
     font-weight: 600;
     padding: 10px;
 }
-
