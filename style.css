@@ -1,125 +1,162 @@
+/* Cozy Cute Aesthetic Red & White Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Quicksand:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Quicksand", sans-serif;
 }
 
+.title, .sub-heading {
+    font-family: "Caveat", cursive;
+    letter-spacing: 1px;
+}
+
+
 body {
-    background: #f3f3f3;
+    background: linear-gradient(135deg, #ffe6e9, #fff5f7); /* blush gradient */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     padding: 30px;
 }
 
-.container {
-    background: white;
-    width: 90%;
-    max-width: 700px;
+.app-wrapper {
+    background: #ffffff;
+    width: 95%;
+    max-width: 750px;
     padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 118, 130, 0.25); /* blush glow */
+    border: 2px solid #ffd2d9;
+    backdrop-filter: blur(5px);
 }
 
-h1 {
+.title {
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 18px;
+    color: #ff6b81;
+    font-weight: 700;
+}
+
+.sub-heading {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #ff6b81;
+    font-weight: 600;
+    text-align: center;
 }
 
 .controls {
     display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 15px;
     justify-content: center;
 }
 
-button {
-    padding: 10px 16px;
+.btn {
+    padding: 12px 18px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
-    background: #007bff;
+    background: #ffb6c1;
     color: white;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    box-shadow: 0px 4px 10px rgba(255, 105, 135, 0.25);
 }
 
-button:disabled {
-    background: #a8a8a8;
+.btn:hover:not(:disabled) {
+    background: #ff8fa3;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    background: #ffc9d1;
     cursor: not-allowed;
+}
+
+#status {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #ff6b81;
 }
 
 textarea {
     width: 100%;
     height: 200px;
-    padding: 12px;
-    margin-top: 10px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 14px;
+    font-size: 17px;
+    border-radius: 12px;
+    border: 2px solid #ffd1d9;
+    background: #fff8f9;
     resize: none;
+    outline: none;
+    color: #444;
+    transition: border 0.3s ease;
+    font-family: "Quicksand", sans-serif;
 }
 
-#status {
-    text-align: center;
-    margin-bottom: 6px;
-    font-size: 14px;
-    color: #444;
+textarea:focus {
+    border: 2px solid #ff8fa3;
 }
 
 ul {
+    list-style: none;
     margin-top: 15px;
-    list-style: disc;
-    padding-left: 20px;
-}
-
-.listening {
-    background: #ff4d4d !important;
-}
-
-.delete-btn {
-    margin-left: 10px;
-    border: 1px solid #ff4d4d;
-    background: #ffe8e8;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 3px 6px;
-    border-radius: 4px;
-    color: #ff4d4d;
-    font-weight: bold;
+    padding: 0;
 }
 
 li {
+    background: #fff0f3;
+    border: 2px solid #ffd1d9;
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 6px;
-}
-
-li span {
-    width: 90%;
-    word-wrap: break-word;
-}
-
-.download-btn {
-    margin-left: 10px;
-    border: 1px solid #007bff;
-    background: #eaf3ff;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 3px 6px;
-    border-radius: 4px;
-    color: #007bff;
-    font-weight: bold;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 12px rgba(255, 118, 130, 0.15);
 }
 
 li span {
     flex: 1;
+    color: #333;
+    font-size: 16px;
     word-wrap: break-word;
-    margin-right: 10px;
+}
+
+.download-btn,
+.delete-btn {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.download-btn {
+    background: #ffbfd0;
+    color: #b30033;
+    border: none;
+}
+
+.download-btn:hover {
+    background: #ff9fb9;
+}
+
+.delete-btn {
+    background: #ffd6da;
+    color: #d62839;
+    border: none;
+}
+
+.delete-btn:hover {
+    background: #ff9aa7;
 }
