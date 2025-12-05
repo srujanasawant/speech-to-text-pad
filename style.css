@@ -78,10 +78,14 @@ ul {
 
 .delete-btn {
     margin-left: 10px;
-    border: none;
-    background: transparent;
+    border: 1px solid #ff4d4d;
+    background: #ffe8e8;
     cursor: pointer;
     font-size: 16px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #ff4d4d;
+    font-weight: bold;
 }
 
 li {
@@ -94,4 +98,28 @@ li {
 li span {
     width: 90%;
     word-wrap: break-word;
+}
+
+.download-btn {
+    margin-left: 10px;
+    border: 1px solid #007bff;
+    background: #eaf3ff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li span {
+    flex: 1;
+    word-wrap: break-word;
+    margin-right: 10px;
 }

@@ -30,15 +30,24 @@ function renderNotes() {
         const textSpan = document.createElement("span");
         textSpan.textContent = note;
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "❌";
-        deleteBtn.classList.add("delete-btn");
+        // Download button
+        const downloadBtn = document.createElement("button");
+        downloadBtn.textContent = "Download 📥";
+        downloadBtn.classList.add("download-btn");
+        downloadBtn.addEventListener("click", () => {
+            downloadNote(note);
+        });
 
+        // Delete button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete ❌";
+        deleteBtn.classList.add("delete-btn");
         deleteBtn.addEventListener("click", () => {
             deleteNote(index);
         });
 
         li.appendChild(textSpan);
+        li.appendChild(downloadBtn);
         li.appendChild(deleteBtn);
         notesList.appendChild(li);
     });
@@ -48,6 +57,18 @@ function deleteNote(index) {
     notes.splice(index, 1); // remove note at index
     localStorage.setItem("speechNotes", JSON.stringify(notes));
     renderNotes();
+}
+
+function downloadNote(noteText) {
+    const blob = new Blob([noteText], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "note.txt"; // file name
+    a.click();
+
+    URL.revokeObjectURL(url);
 }
 
 if (!SpeechRecognition) {
